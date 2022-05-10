@@ -1,13 +1,19 @@
-// const User = require('./User');
-// const Project = require('./Project');
+const User = require('./User');
+const Comment = require('./comment');
+//const post
 
-// User.hasMany(Project, {
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE'
-// });
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
-// Project.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
+Comment.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
-// module.exports = { User, Project };
+//user has many posts, post belong to user, post has many comments, comments belong to post, 
+
+module.exports = { User, Comment };
+//export post as well
+
+//capitalize file name and class name but only for models 
