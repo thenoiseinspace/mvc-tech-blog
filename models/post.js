@@ -36,7 +36,7 @@ Post.init(
         // postText: {
         //     type: DataTypes.STRING,
         //     allowNull: false,
-        },
+        // },
     },
     {   
         sequelize,
