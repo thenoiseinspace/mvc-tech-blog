@@ -1,6 +1,6 @@
 const User = require('./User');
-const Comment = require('./comment');
-//const post
+const Comment = require('./Comment');
+const Post = require('./Post');
 
 User.hasMany(Comment, {
   foreignKey: 'user_id',
@@ -13,7 +13,16 @@ Comment.belongsTo(User, {
 
 //user has many posts, post belong to user, post has many comments, comments belong to post, 
 
-module.exports = { User, Comment };
-//export post as well
+User.hasMany(Post, {});
 
-//capitalize file name and class name but only for models 
+Post.belongsTo(User, {
+	foreignKey: 'userId',
+});
+
+Post.hasMany(Comment, {});
+
+Comment.belongsTo(Post, {
+	foreignKey: 'userId',
+});
+
+module.exports = { User, Comment, Post };
