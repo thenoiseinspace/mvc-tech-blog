@@ -18,20 +18,24 @@ Post.init(
         userID: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            foreignKey: true,
+            // foreignKey: true,
             references: {
                 model: "user", 
                 key: "id",
             }
         },
-        postID: {
-            type: DataTypes.INTEGER,
+        // postID: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     foreignKey: true,
+        //     references: {
+        //         model: "post", 
+        //         key: "id",
+        //     }
+        // },
+        postTitle: {
+            type: DataTypes.STRING,
             allowNull: false,
-            foreignKey: true,
-            references: {
-                model: "post", 
-                key: "id",
-            }
         },
         postText: {
             type: DataTypes.STRING,
@@ -43,7 +47,7 @@ Post.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'post'
     }
 );
 
