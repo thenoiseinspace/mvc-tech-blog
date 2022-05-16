@@ -9,20 +9,20 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    // const postData = await Post.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
     // // Serialize data so the template can read it
-    // const post = postData.map((post) => post.get({ plain: true }));
+    const post = postData.map((post) => post.get({ plain: true }));
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      //   post: post, 
-      // logged_in: req.session.logged_in 
+        post: post, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -84,6 +84,14 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login'); //will poiint to login.handlebars file in views 
+});
+
+router.get('/signup', (req, res) => {
+  if (!req.session.loggedIn) {
+      res.render('signup');
+  } else {
+      res.redirect('/');
+  }
 });
 
 module.exports = router;
