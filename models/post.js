@@ -47,4 +47,4 @@ Post.init(
     }
 );
 
-module.exports = User;
+module.exports = Post;

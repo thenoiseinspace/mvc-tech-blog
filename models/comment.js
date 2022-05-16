@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// create our User model
+// create our Comment model
 class Comment extends Model {
 
 }
@@ -49,4 +49,4 @@ Comment.init(
     }
 );
 
-module.exports = User;
+module.exports = Comment;

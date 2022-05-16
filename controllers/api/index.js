@@ -3,8 +3,8 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
 const commentRoutes = require('./commentRoutes');
-const apiRoutes = require('./api/user-routes');
-const homeRoutes = require('./home-routes');
+const apiRoutes = require('./api/userRoutes');
+const homeRoutes = require('./homeRoutes');
 // console.log(userRoutes)
 
 router.use('/users', userRoutes);
@@ -14,3 +14,4 @@ router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
 
 module.exports = router;
+// module.exports = auth
